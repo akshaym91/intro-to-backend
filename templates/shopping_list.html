@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block bodycontent %}
+<form>
+    <h1>Add a food</h1>
+    <input type="text" name="food">
+    <button>Add</button>
+    <ol>
+        {% for item in items %}
+        <input type="hidden" name="food" value="{{item}}">
+        <li>{{item}}</li>
+        {% endfor %}
+    </ol>
+</form>
+{% endblock %}
