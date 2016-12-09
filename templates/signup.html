@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block bodycontent %}
+<h3>Signup to unlock more features!</h3>
+<form method="post">
+    <div>
+        <label>Username<b style="color: red">*</b> :</label>
+        <input type="textbox" name="username" value="{{errors.user_username}}" required>
+        {% if errors %}
+        <span style="color: red">{{errors.username_error}}</span>
+        {% endif %}
+    </div>
+    <div>
+        <label>Password<b style="color: red">*</b>:</label>
+        <input type="password" name="password" required>
+        {% if errors %}
+        <span style="color: red">{{errors.password_error}}</span>
+        {% endif %}
+    </div>
+    <div>
+        <label>Verify Password<b style="color: red">*</b>:</label>
+        <input type="password" name="verify" required>
+        {% if errors %}
+        <span style="color: red">{{errors.verify_error}}</span>
+        {% endif %}
+    </div>
+    <div>
+        <label>Email (optional):</label>
+        <input type="textbox" name="email" value ="{{errors.user_email}}">
+        {% if errors %}
+        <span style="color: red">{{errors.email_error}}</span>
+        {% endif %}
+    </div>
+    <div>
+    	<input type="submit">
+    </div>
+</form>
+{% endblock %}
