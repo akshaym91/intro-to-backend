@@ -110,7 +110,7 @@ class SignUp(Handler):
                                 "user_username": user_username,
                                 "user_email": user_email})
         else:
-            self.render("thanks.html", user_username=user_username)
+            self.redirect("/thanks?user_username="+user_username)
 
 
 class Rot13(Handler):
@@ -129,7 +129,8 @@ class ThanksHandler(Handler):
     """docstring for ThanksHandler"""
 
     def get(self):
-        self.render("thanks.html")
+        user_username = self.request.get('user_username')
+        self.render("thanks.html", user_username=user_username)
 
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/fizzbuzz', FizzBuzz),
