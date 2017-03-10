@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block bodycontent %}
+<h2>ASCII Chan</h2>
+<form class="column" method="post">
+	<div class="form-group">
+		<label class="form-label">
+			<div>Title</div>
+		</label>
+		<input class="form-input" type="text" name="title" value="{{title}}">
+	</div>
+	<div class="form-group">
+		<label class="form-label">
+			<div>Ascii Art</div>
+		</label>
+		<textarea class="form-input" name="art">{{art}}</textarea>
+	</div>
+	<br>
+	{% if error%}
+	<div class="toast toast-danger">
+	    <button class="btn btn-clear float-right"></button>
+	    {{error}}
+	</div>
+	{% endif%}
+	<input class="btn btm-primary" type="submit" name="submit">
+</form>
+<hr>
+<div class="columns">
+	{% for art in arts %}
+		<div class="col-4 art">
+			<div class="art-title"><h3>{{art.title}}</h3></div>
+			<pre class="art-body">{{art.art}}</pre>
+		</div>
+	{% endfor%}
+</div>
+{% endblock %}
